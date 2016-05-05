@@ -8,10 +8,13 @@ public class SortingAlgo {
 		System.out.println("Pre-sorting...");
 		display(arr);
 		
-		System.out.println("\n\nAfter sorting...");
-		insertionSort(arr);
+	//	System.out.println("\n\nAfter sorting...");
+	//	insertionSort(arr);
+	//	display(arr);
+		
+		System.out.println("\n\nAfter sorting in Decreasing order...");
+		revInsertionSort(arr);
 		display(arr);
-	
 		
 	}
 	//end of main()
@@ -23,6 +26,20 @@ public class SortingAlgo {
 			key=arr[j];
 			i=j-1;
 			while(i>=0 && arr[i]>key){
+				arr[i+1]=arr[i];
+				i=i-1;
+			}
+			arr[i+1]=key;
+		}
+		return arr;
+	}
+	// decreasing sort
+	public static int[] revInsertionSort(int arr[]){
+		int i,j,key;
+		for(j=1;j<arr.length;j++){
+			key=arr[j];
+			i=j-1;
+			while(i>=0 && arr[i]<key){
 				arr[i+1]=arr[i];
 				i=i-1;
 			}
