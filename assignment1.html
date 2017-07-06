@@ -1,0 +1,67 @@
+<!doctype html>
+<head>
+<title>Login Form</title>
+	
+</head>
+<script>
+	function passvalidaton(){
+		var foo=false;
+		if (document.getElementById("nameid").value != document.getElementById("passid").value){
+			alert("Username and Password do not match");
+		}
+		else{
+			foo=true;
+		}
+		return foo;
+	}
+	
+	function Captcha(){
+                     var alpha = new Array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
+                     var i;
+                     for (i=0;i<6;i++){
+                       var a = alpha[Math.floor(Math.random() * alpha.length)];
+                       var b = alpha[Math.floor(Math.random() * alpha.length)];
+                       var c = alpha[Math.floor(Math.random() * alpha.length)];
+                       var d = alpha[Math.floor(Math.random() * alpha.length)];
+                       var e = alpha[Math.floor(Math.random() * alpha.length)];
+                       var f = alpha[Math.floor(Math.random() * alpha.length)];
+                       var g = alpha[Math.floor(Math.random() * alpha.length)];
+                      }
+                    var code = a + ' ' + b + ' ' + ' ' + c + ' ' + d + ' ' + e + ' '+ f + ' ' + g;
+                    document.getElementById("captchaid").value = code
+                  }
+	function captchavalidation(){
+		var foo=false;
+		if (document.getElementById("ecaptchaid").value != document.getElementById("captchaid").value){
+			alert("CAPTCHA do not match");
+		}
+		else{
+			foo=true;
+		}
+		return foo;
+	}
+
+
+	function validation(){
+		if(passvalidaton() && captchavalidation()){
+			//alert("AWESOME !");
+			window.location = "file:///C:/Users/Jimmy%20Valentine/Documents/success.html";
+			alert("AWESOME !");
+		}
+	} 
+</script>
+	
+</head>
+<body onload="Captcha();">
+	
+<h1 align="center">Login</h1>
+<form align="center">
+	<p>Name:<input id="nameid" type="text" name="fname" required="required" /></p>
+	<p>Password:<input id="passid" type="text" name="password" required="required" /></p>
+	<p>CAPTCHA: <input id="captchaid" type="text" name="captcha" readonly="true"/></p>
+	<p>Enter CAPTCHA<input id="ecaptchaid" type="text" required="required" /></p>
+	<p><input type="submit" onclick="validation();" value="Submit" /></p>
+</form>
+</body>
+
+</html>
